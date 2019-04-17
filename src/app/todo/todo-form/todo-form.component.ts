@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {NgForm} from '@angular/forms';
-import { TodoItem } from 'src/app/shared/models/Todo';
+import { TodoItem } from '../../shared/models/Todo';
 import { TodoService } from '../todo.service';
 
 @Component({
