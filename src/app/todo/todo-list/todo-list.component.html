@@ -1,0 +1,14 @@
+
+
+  <ul class="list-group">
+      <li  class="list-group-item" *ngFor="let todoItem of todoList$ | async" >
+        <b>{{todoItem.name}}</b> <small> {{ todoItem.created | date:'medium' }}</small>
+        <span class="pull-right">
+            <span class="btn btn-xs btn-default" (click)="deleteItem(todoItem)">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </span>
+        </span>
+
+      </li>
+    </ul>
+
