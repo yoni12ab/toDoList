@@ -1,11 +1,17 @@
 <form autocomplete="off">
-    <div class="input-group">
-        <input type="text" class="form-control"  required
-        name="name" [(ngModel)]="todoItem.name"
-        placeholder="Add Todo item...">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="submit" (click)="submitMethod()">Add</button>
-        </span>
-      </div>
-
+  <div class="input-group">
+    <input
+      type="text"
+      class="form-control"
+      required
+      name="name"
+      [(ngModel)]="todoItem.name"
+      placeholder="Add Todo item..."
+    />
+    <div class="input-group-append">
+        <button class="input-group-text btn btn-default" type="submit" (click)="submitMethod()">
+          Add
+        </button>
+    </div>
+  </div>
 </form>

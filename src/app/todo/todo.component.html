@@ -1,4 +1,13 @@
-<p>
-  <app-todo-form></app-todo-form>
-  <app-todo-list></app-todo-list>
-</p>
+<div  class="container" >
+  <div class="row">
+      <div class="col-sm">
+          <app-todo-form></app-todo-form>
+      </div>
+      <div class="col-sm">
+          <app-search (searchChange)="searchChange($event)"></app-search>
+      </div>
+  </div>
+  <div class="todo-list-container" >
+    <app-todo-list></app-todo-list>
+  </div>
+</div>

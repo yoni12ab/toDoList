@@ -9,6 +9,7 @@ import { TodoService } from '../todo.service';
 })
 export class TodoListComponent implements OnInit {
   public todoList$ = this.todoService.getToDoList();
+  public searchTerm$ = this.todoService.getSearchTerm();
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
@@ -17,4 +18,9 @@ export class TodoListComponent implements OnInit {
   public deleteItem(itemToRemove: TodoItem) {
     this.todoService.removeItem(itemToRemove);
   }
+
+  public checkItem(itemToRemove: TodoItem) {
+    this.todoService.checkItem(itemToRemove);
+  }
+
 }

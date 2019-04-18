@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MatRippleModule, MatInputModule, MatFormFieldModule , MatButtonModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SearchPipe } from './search/search.pipe';
+import { SearchComponent } from './search/search.component';
 const importExport = [
   MatButtonModule,
   MatFormFieldModule,
@@ -12,13 +14,14 @@ const importExport = [
   ReactiveFormsModule ];
 
 @NgModule({
-  declarations: [],
+  declarations: [SearchPipe, SearchComponent],
   imports: [
     CommonModule,
-    ...importExport
+    ...importExport,
   ],
   exports: [
-    ...importExport
+    ...importExport,
+    SearchPipe, SearchComponent
   ]
 })
 export class SharedModule { }

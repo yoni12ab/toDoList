@@ -15,10 +15,12 @@ export class TodoService {
   private readonly LOCAL_STORAGE_KEY = 'todoList';
   private todoArr = this._getLocalStorageList();
   private todoList$ = new BehaviorSubject<TodoItem[]>(this.todoArr);
+  private searchTerm$ = new BehaviorSubject<string>(null);
   public removeItem = this._removeItem;
+  public checkItem = this._checkItem;
   public getToDoList = () => this.todoList$;
   public addItem = (newItem: TodoItem) => this.todoArr.unshift(newItem) && this.todoList$.next(this.todoArr);
-
+  public getSearchTerm = () => this.searchTerm$;
    _listChanged(): void {
      if (this.todoArr.length) {
       localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(this.todoArr));
@@ -42,4 +44,11 @@ export class TodoService {
       this.todoList$.next(this.todoArr);
     }
    }
+
+   _checkItem(itemToCheck: TodoItem) {
+
+    itemToCheck.checked = !itemToCheck.checked;
+    this.todoList$.next(this.todoArr);
+
+  }
 }

@@ -1,13 +1,17 @@
 
 
   <ul class="list-group">
-      <li  class="list-group-item" *ngFor="let todoItem of todoList$ | async" >
-        <b>{{todoItem.name}}</b> <small> {{ todoItem.created | date:'medium' }}</small>
-        <span class="pull-right">
-            <span class="btn btn-xs btn-default" (click)="deleteItem(todoItem)">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-            </span>
-        </span>
+      <li  class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+          (click)="checkItem(todoItem)"
+          [ngClass]="{'todo-is-checked':todoItem.checked}"
+          *ngFor="let todoItem of (todoList$ | async) | search : ['name'] : (searchTerm$ | async)"  >
+        <div>
+          <b>{{todoItem.name}}</b>
+          <small> {{ todoItem.created | date:'medium' }}</small>
+        </div>
+        <button  class="btn btn-xs btn-default far fa-trash-alt" (click)="deleteItem(todoItem)">
+
+        </button >
 
       </li>
     </ul>

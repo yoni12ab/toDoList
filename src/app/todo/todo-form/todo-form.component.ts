@@ -19,12 +19,14 @@ export class TodoFormComponent implements OnInit {
   }
 
   public submitMethod() {
-    this.todoService.addItem(new TodoItem(this.todoItem.name));
+    if (this.todoItem.name) {
+      this.todoService.addItem(new TodoItem(this.todoItem.name));
 
-    if (this.addEvent) {
-      this.addEvent.emit(this.todoItem);
+      if (this.addEvent) {
+        this.addEvent.emit(this.todoItem);
+      }
+      // console.log(this.todoItem);
+      this.todoItem.name = undefined;
     }
-    // console.log(this.todoItem);
-    this.todoItem.name = undefined;
   }
 }

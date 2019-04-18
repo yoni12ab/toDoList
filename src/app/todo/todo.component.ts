@@ -8,10 +8,16 @@ import { TodoService } from './todo.service';
   styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent implements OnInit {
-
-  constructor() { }
+  private searchTerm$ = this.todoService.getSearchTerm();
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
+  }
+
+  searchChange(searchTerm: string): void {
+    console.log(searchTerm);
+    this.searchTerm$.next(searchTerm);
+
   }
 
 }
